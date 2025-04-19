@@ -6,9 +6,40 @@ import { useState } from "react";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formStatus, setFormStatus] = useState("");
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus("Sending...");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setFormStatus("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setFormStatus("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setFormStatus("An error occurred. Please try again.");
+    }
   };
 
   return (
@@ -246,20 +277,29 @@ export default function Home() {
           <p className="text-lg max-w-3xl mx-auto leading-relaxed text-center mb-12">
             Feel free to reach out to me for collaboration or inquiries!
           </p>
-          <form className="max-w-3xl mx-auto space-y-4">
+          <form className="max-w-3xl mx-auto space-y-4" onSubmit={handleSubmit}>
             <input
               type="text"
+              name="name"
               placeholder="Your Name"
+              value={formData.name}
+              onChange={handleInputChange}
               className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
             <input
               type="email"
+              name="email"
               placeholder="Your Email"
+              value={formData.email}
+              onChange={handleInputChange}
               className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
             <textarea
+              name="message"
               placeholder="Your Message"
               rows={5}
+              value={formData.message}
+              onChange={handleInputChange}
               className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             ></textarea>
             <button
@@ -269,6 +309,7 @@ export default function Home() {
               Send Message
             </button>
           </form>
+          {formStatus && <p className="text-center mt-4">{formStatus}</p>}
         </section>
       </main>
 
