@@ -12,7 +12,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white font-sans">
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-900 to-black text-white font-sans">
       <header className="absolute top-0 left-0 w-full p-4 flex justify-between items-center bg-black bg-opacity-50">
         <h1 className="text-2xl font-bold">Channing Smith</h1>
         <nav className="hidden md:flex gap-6">
@@ -58,7 +58,7 @@ export default function Home() {
           </p>
         </section>
 
-        <section id="professional-work" className="py-20 bg-gradient-to-br from-gray-900 via-black to-purple-900">
+        <section id="professional-work" className="py-20 bg-gradient-to-br from-gray-900 via-black to-blue-900">
           <h2 className="text-4xl font-semibold mb-8 text-center">Professional Work</h2>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed text-center mb-12">
             Here are some of the key projects I have worked on during my professional career at Thrive.
@@ -97,7 +97,7 @@ export default function Home() {
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2">AI Script Summarization</h3>
                 <p className="text-sm text-gray-400 mb-4">
-                  A tool created for PMs to generate a project summary of their assigned orders using AI.
+                  A tool created for ServiceNow users to be able to summarize: script includes, business rules, script actions, etc.
                 </p>
                 <Link
                   href="/aiorder"
@@ -117,9 +117,9 @@ export default function Home() {
                 className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
               />
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2">Keeper Integration - ServiceNow</h3>
+                <h3 className="text-2xl font-bold mb-2">Keeper Integration</h3>
                 <p className="text-sm text-gray-400 mb-4">
-                  A note-taking app designed to help users organize their thoughts and tasks efficiently.
+                  A custom integration with Keeper Security to help reporting and remediation of security issues for clients.
                 </p>
                 <Link
                   href="/aiorder"
@@ -141,7 +141,7 @@ export default function Home() {
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2">LiquidFiles Integration</h3>
                 <p className="text-sm text-gray-400 mb-4">
-                  A web application to track global statistics and trends in real-time, providing valuable insights.
+                  A file-sharing integration that creates file sharing links triggered by Salesforce events.
                 </p>
                 <Link
                   href="/aiorder"
@@ -155,7 +155,7 @@ export default function Home() {
           </ul>
         </section>
 
-        <section id="key-skills" className="py-20 bg-gradient-to-br from-gray-900 via-black to-purple-900">
+        <section id="key-skills" className="py-20 bg-gradient-to-br from-gray-900 via-black to-blue-900">
           <h2 className="text-4xl font-semibold mb-8 text-center">Key Skills</h2>
           <div className="max-w-3xl mx-auto">
             <details className="bg-gray-800 text-white p-4 rounded-lg shadow-lg mb-4">
@@ -164,8 +164,8 @@ export default function Home() {
                 <li>JavaScript / TypeScript</li>
                 <li>React / Next.js</li>
                 <li>Node.js</li>
-                <li>CSS / Tailwind CSS</li>
-                <li>RESTful APIs</li>
+                <li>CSS / Tailwind CSS / MUI</li>
+                <li>REST APIs</li>
                 <li>Git / Version Control</li>
                 <li>ServiceNow Development</li>
               </ul>
