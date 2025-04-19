@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
         <h1 className="text-2xl font-bold">Channing Smith</h1>
         <nav className="hidden md:flex gap-6">
           <a href="#about" className="hover:underline">About</a>
-          <a href="#projects" className="hover:underline">Projects</a>
+          <a href="#professional-work" className="hover:underline">Projects</a>
           <a href="#contact" className="hover:underline">Contact</a>
         </nav>
         <button
@@ -31,7 +32,7 @@ export default function Home() {
       {isMenuOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex flex-col items-center justify-center text-white md:hidden">
           <a href="#about" className="py-2 text-xl hover:underline" onClick={toggleMenu}>About</a>
-          <a href="#projects" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Projects</a>
+          <a href="#professional-work" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Projects</a>
           <a href="#contact" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Contact</a>
         </div>
       )}
@@ -47,7 +48,13 @@ export default function Home() {
         <section id="about" className="py-20">
           <h2 className="text-4xl font-semibold mb-8 text-center">About Me</h2>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed">
-            Hi, I'm Channing! As a developer and creative, I thrive at the intersection of technology and creativity. My passion lies in building innovative projects that inspire and engage, while also helping out as many people as possible. Welcome to my portfolio!
+            Hi, I'm Channing! As a developer and creative, I thrive at the intersection of technology and creativity. My passion lies in building innovative projects that inspire and engage, while also helping as many people as possible.
+          </p>
+          <p className="text-lg max-w-3xl mx-auto leading-relaxed mt-4">
+            I graduated with a degree in Computer Science from College of Charleston. Currently, I work at Thrive, where I specialize in third party integrations, particularly within the ServiceNow platform.
+          </p>
+          <p className="text-lg max-w-3xl mx-auto leading-relaxed mt-4">
+            In my free time, I enjoy creating custom websites, reading up on new technologies, and hanging out with my dog, Archie!
           </p>
         </section>
 
@@ -70,12 +77,12 @@ export default function Home() {
                 <p className="text-sm text-gray-400 mb-4">
                   A tool created for PMs to generate a project summary of their assigned orders using AI.
                 </p>
-                <a
-                  href="#"
+                <Link
+                  href="/aiorder"
                   className="text-indigo-400 hover:text-indigo-300 underline"
                 >
                   Learn More
-                </a>
+                </Link>
               </div>
             </li>
             
@@ -92,12 +99,12 @@ export default function Home() {
                 <p className="text-sm text-gray-400 mb-4">
                   A tool created for PMs to generate a project summary of their assigned orders using AI.
                 </p>
-                <a
-                  href="#"
+                <Link
+                  href="/aiorder"
                   className="text-indigo-400 hover:text-indigo-300 underline"
                 >
                   Learn More
-                </a>
+                </Link>
               </div>
             </li>
 
@@ -114,12 +121,12 @@ export default function Home() {
                 <p className="text-sm text-gray-400 mb-4">
                   A note-taking app designed to help users organize their thoughts and tasks efficiently.
                 </p>
-                <a
-                  href="#"
+                <Link
+                  href="/aiorder"
                   className="text-indigo-400 hover:text-indigo-300 underline"
                 >
                   Learn More
-                </a>
+                </Link>
               </div>
             </li>
 
@@ -136,12 +143,12 @@ export default function Home() {
                 <p className="text-sm text-gray-400 mb-4">
                   A web application to track global statistics and trends in real-time, providing valuable insights.
                 </p>
-                <a
-                  href="#"
+                <Link
+                  href="/aiorder"
                   className="text-indigo-400 hover:text-indigo-300 underline"
                 >
                   Learn More
-                </a>
+                </Link>
               </div>
             </li>
 
@@ -161,6 +168,18 @@ export default function Home() {
                 <li>RESTful APIs</li>
                 <li>Git / Version Control</li>
                 <li>ServiceNow Development</li>
+              </ul>
+            </details>
+            <details className="bg-gray-800 text-white p-4 rounded-lg shadow-lg mb-4">
+              <summary className="cursor-pointer text-xl font-semibold">ServiceNow Skills</summary>
+              <ul className="list-disc list-inside mt-4 space-y-2">
+                <li>Script Includes</li>
+                <li>UI Actions</li>
+                <li>Custom Tables</li>
+                <li>Business Rules</li>
+                <li>Client Scripts</li>
+                <li>Identification & Reconciliation Engine</li>
+                <li>Integration with AI Models</li>
               </ul>
             </details>
             <details className="bg-gray-800 text-white p-4 rounded-lg shadow-lg">
