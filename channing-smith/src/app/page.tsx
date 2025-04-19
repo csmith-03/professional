@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-blue-900 to-black text-white font-sans">
       <header className="absolute top-0 left-0 w-full p-4 flex justify-between items-center bg-black bg-opacity-50">
-        <h1 className="text-2xl font-bold">Channing Smith</h1>
+        <h1 className="text-xl sm:text-2xl font-bold">console.log(<span className="text-green-400">"Hello world! I'm Channing Smith!"</span>);</h1>
         <nav className="hidden md:flex gap-6">
           <a href="#about" className="hover:underline">About</a>
           <a href="#professional-work" className="hover:underline">Projects</a>
@@ -31,6 +31,13 @@ export default function Home() {
 
       {isMenuOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex flex-col items-center justify-center text-white md:hidden">
+          <button
+            className="absolute top-4 right-4 text-2xl text-white"
+            onClick={toggleMenu}
+            aria-label="Close menu"
+          >
+            ✕
+          </button>
           <a href="#about" className="py-2 text-xl hover:underline" onClick={toggleMenu}>About</a>
           <a href="#professional-work" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Projects</a>
           <a href="#contact" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Contact</a>
