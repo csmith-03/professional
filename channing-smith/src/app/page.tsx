@@ -2,12 +2,28 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [formStatus, setFormStatus] = useState("");
+  const [displayedText, setDisplayedText] = useState("");
+  const fullText = 'console.log("Hello world! I\'m Channing Smith!");';
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < fullText.length) {
+        setDisplayedText(fullText.slice(0, index + 1));
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -45,7 +61,10 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-blue-900 to-black text-white font-sans">
       <header className="absolute top-0 left-0 w-full p-4 flex justify-between items-center bg-black bg-opacity-50">
-        <h1 className="text-lg sm:text-lg break-words max-w-xs sm:max-w-md">console.log(<span className="text-green-400">"Hello world! I'm Channing Smith!"</span>);</h1>
+        <h1 className="text-lg sm:text-lg break-words max-w-xs sm:max-w-md">
+          <span className="text-green-400">{displayedText}</span>
+          <span className="blinking-cursor">|</span>
+        </h1>
         <nav className="hidden md:flex gap-6">
           <a href="#about" className="hover:underline">About</a>
           <a href="#professional-work" className="hover:underline">Projects</a>
@@ -336,6 +355,23 @@ export default function Home() {
         </div>
         <p className="text-sm text-gray-400">© 2025 Channing Smith. All rights reserved.</p>
       </footer>
+      <style jsx>{`
+        .blinking-cursor {
+          display: inline-block;
+          width: 1ch;
+          background-color: currentColor;
+          animation: blink 1s steps(2, start) infinite;
+        }
+
+        @keyframes blink {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+        }
+      `}</style>
     </div>
   );
 }

@@ -9,6 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@codemirror/gutter": "^0.19.9",
+    "@codemirror/highlight": "^0.19.8",
+    "@codemirror/history": "^0.19.2",
+    "@codemirror/lang-javascript": "^6.2.3",
+    "@codemirror/state": "^6.5.2",
+    "@codemirror/view": "^6.36.5",
     "next": "15.3.1",
     "nodemailer": "^6.10.1",
     "react": "^19.0.0",
