@@ -14,10 +14,11 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-blue-900 to-black text-white font-sans">
       <header className="absolute top-0 left-0 w-full p-4 flex justify-between items-center bg-black bg-opacity-50">
-        <h1 className="text-xl sm:text-2xl font-bold">console.log(<span className="text-green-400">"Hello world! I'm Channing Smith!"</span>);</h1>
+        <h1 className="text-lg sm:text-lg break-words max-w-xs sm:max-w-md">console.log(<span className="text-green-400">"Hello world! I'm Channing Smith!"</span>);</h1>
         <nav className="hidden md:flex gap-6">
           <a href="#about" className="hover:underline">About</a>
           <a href="#professional-work" className="hover:underline">Projects</a>
+          <a href="#published-works" className="hover:underline">Published Works</a>
           <a href="#contact" className="hover:underline">Contact</a>
         </nav>
         <button
@@ -202,6 +203,44 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="published-works" className="py-20 bg-gradient-to-br from-gray-900 via-black to-blue-900 rounded-lg shadow-lg px-4 sm:px-8 mt-16">
+          <h2 className="text-4xl font-semibold mb-8 text-center">Published Works</h2>
+          <p className="text-lg max-w-3xl mx-auto leading-relaxed text-center mb-12">
+            While I have only authored a couple of articles so far, each one reflects my passion for technology and innovation.
+          </p>
+          <div className="max-w-3xl mx-auto space-y-8">
+            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+              <h3 className="text-2xl font-bold mb-2 text-indigo-400">"Formal Analysis of Deontic Logic Model for Ethical Decisions"</h3>
+              <p className="text-sm text-gray-400 mb-4">
+                Published in Proceedings of the 17th International Conference on Agents and Artificial Intelligence - Volume 1: ICAART, 218-223, 2025 , Porto, Portugal
+              </p>
+              <a
+                href="https://www.scitepress.org/Link.aspx?doi=10.5220/0013385200003890"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-400 hover:text-indigo-300 underline"
+              >
+                Read Article
+              </a>
+            </div>
+            <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+              <h3 className="text-2xl font-bold mb-2 text-indigo-400">"A Second Look at the Portability of Deep Learning Side-Channel Attacks over EM Traces"</h3>
+              <p className="text-sm text-gray-400 mb-4">
+                Published in RAID '24: Proceedings of the 27th International Symposium on Research in Attacks, Intrusions and Defenses
+
+              </p>
+              <a
+                href="https://dl.acm.org/doi/10.1145/3678890.3678900"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-indigo-400 hover:text-indigo-300 underline"
+              >
+                Read Article
+              </a>
+            </div>
+          </div>
+        </section>
+
         <section id="contact" className="py-20">
           <h2 className="text-4xl font-semibold mb-8 text-center">Contact</h2>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed text-center mb-12">
@@ -232,6 +271,30 @@ export default function Home() {
           </form>
         </section>
       </main>
+
+      <footer className="py-8 bg-black text-white text-center">
+        <div className="flex justify-center gap-6 mb-4">
+          <a href="https://www.linkedin.com/in/channing-smith-1261061b3/" target="_blank" rel="noopener noreferrer">
+            <Image
+              src="/linkedin.png"
+              alt="LinkedIn"
+              width={32}
+              height={32}
+              className="hover:opacity-80 transition-opacity"
+            />
+          </a>
+          <a href="https://github.com/csmith-03" target="_blank" rel="noopener noreferrer">
+            <Image
+              src="/githubblue.webp"
+              alt="GitHub"
+              width={32}
+              height={32}
+              className="hover:opacity-80 transition-opacity"
+            />
+          </a>
+        </div>
+        <p className="text-sm text-gray-400">© 2025 Channing Smith. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
