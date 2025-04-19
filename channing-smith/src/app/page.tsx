@@ -87,6 +87,7 @@ export default function Home() {
           </button>
           <a href="#about" className="py-2 text-xl hover:underline" onClick={toggleMenu}>About</a>
           <a href="#professional-work" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Projects</a>
+          <a href="#published-works" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Published Works</a>
           <a href="#contact" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Contact</a>
         </div>
       )}
@@ -104,7 +105,7 @@ export default function Home() {
             <a href="#contact" className="hover:underline">Contact</a>
           </nav>
           <button
-            className="md:hidden text-white ml-auto"
+            className="md:hidden text-white ml-auto text-3xl"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -179,7 +180,7 @@ export default function Home() {
                   A tool created for ServiceNow users to be able to summarize: script includes, business rules, script actions, etc.
                 </p>
                 <Link
-                  href="/aiorder"
+                  href="/aiscript"
                   className="text-indigo-400 hover:text-indigo-300 underline"
                 >
                   Learn More
@@ -201,7 +202,7 @@ export default function Home() {
                   A custom integration with Keeper Security to help reporting and remediation of security issues for clients.
                 </p>
                 <Link
-                  href="/aiorder"
+                  href="/keeper"
                   className="text-indigo-400 hover:text-indigo-300 underline"
                 >
                   Learn More
@@ -223,7 +224,7 @@ export default function Home() {
                   A file-sharing integration that creates file sharing links triggered by Salesforce events.
                 </p>
                 <Link
-                  href="/aiorder"
+                  href="/liquidfiles"
                   className="text-indigo-400 hover:text-indigo-300 underline"
                 >
                   Learn More
