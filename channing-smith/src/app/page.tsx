@@ -7,12 +7,21 @@ export default function Home() {
   useEffect(() => {
     const menuToggle = document.getElementById('menu-toggle');
     const menu = document.getElementById('mobile-menu');
+
     const toggleMenu = () => {
-      menu?.classList.toggle('hidden');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
     };
-    menuToggle?.addEventListener('click', toggleMenu);
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', toggleMenu);
+    }
+
     return () => {
-      menuToggle?.removeEventListener('click', toggleMenu);
+      if (menuToggle) {
+        menuToggle.removeEventListener('click', toggleMenu);
+      }
     };
   }, []);
   return (
