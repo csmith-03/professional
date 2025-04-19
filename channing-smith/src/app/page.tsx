@@ -1,18 +1,42 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const toggleMenu = () => {
+      menu?.classList.toggle('hidden');
+    };
+    menuToggle?.addEventListener('click', toggleMenu);
+    return () => {
+      menuToggle?.removeEventListener('click', toggleMenu);
+    };
+  }, []);
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white font-sans">
-      <header className="absolute top-0 left-0 w-full p-8 flex justify-between items-center">
-        <h1 className="text-4xl font-bold leading-tight mb-6">Channing Smith</h1>
-        <nav className="flex gap-6">
+      <header className="absolute top-0 left-0 w-full p-4 flex justify-between items-center bg-black bg-opacity-50">
+        <h1 className="text-2xl font-bold">Channing Smith</h1>
+        <nav className="hidden md:flex gap-6">
           <a href="#about" className="hover:underline">About</a>
           <a href="#projects" className="hover:underline">Projects</a>
           <a href="#contact" className="hover:underline">Contact</a>
         </nav>
+        <button className="md:hidden text-white" id="menu-toggle">
+          ☰
+        </button>
       </header>
 
+      <div id="mobile-menu" className="hidden flex-col items-center bg-black bg-opacity-75 text-white p-4 md:hidden">
+        <a href="#about" className="py-2 hover:underline">About</a>
+        <a href="#projects" className="py-2 hover:underline">Projects</a>
+        <a href="#contact" className="py-2 hover:underline">Contact</a>
+      </div>
+
       <main className="pt-32 px-8">
+      </main>
         <section id="hero" className="text-center py-20">
           <h2 className="text-6xl font-bold leading-tight mb-6">Software Developer</h2>
           <p className="text-xl max-w-2xl mx-auto leading-relaxed">
@@ -154,15 +178,33 @@ export default function Home() {
 
         <section id="contact" className="py-20">
           <h2 className="text-4xl font-semibold mb-8 text-center">Contact</h2>
-          <p className="text-lg max-w-3xl mx-auto leading-relaxed text-center">
-            Interested in working together? Reach out to me at <a href="mailto:channing19smith@gmail.com" className="text-indigo-400 hover:underline">channing19smith@gmail.com</a>.
+          <p className="text-lg max-w-3xl mx-auto leading-relaxed text-center mb-12">
+            Feel free to reach out to me for collaboration or inquiries!
           </p>
+          <form className="max-w-3xl mx-auto space-y-4">
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+            <textarea
+              placeholder="Your Message"
+              rows={5}
+              className="w-full p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            ></textarea>
+            <button
+              type="submit"
+              className="w-full py-3 bg-indigo-500 text-white rounded-lg hover:bg-indigo-400 transition"
+            >
+              Send Message
+            </button>
+          </form>
         </section>
-      </main>
-
-      <footer className="absolute bottom-0 left-0 w-full py-4 text-center text-sm text-gray-500">
-        <p>© 2025 Channing Smith. All rights reserved.</p>
-      </footer>
-    </div>
+      </div>
   );
 }
