@@ -1,12 +1,14 @@
 export default function aiorder() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-black text-white font-sans p-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-black text-white font-sans p-8 rounded-lg shadow-lg">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl font-extrabold mb-8 text-center text-white">AI Order Summarization</h1>
+      <section id="hero" className="text-center">
+      <h1 className="text-4xl font-extrabold mb-6 text-white sm:text-5xl sm:mb-8">AI Order Summarization</h1>
+      </section>
         <p className="text-lg leading-relaxed mb-6 text-gray-300 text-center">
           Leveraging artificial intelligence to generate concise summaries of project orders for project managers, streamlining workflows and enhancing productivity.
         </p>
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div className="bg-gradient-to-br from-gray-900 via-black to-blue-900 p-6 rounded-lg shadow-lg">
           <h2 className="text-3xl font-semibold mb-8 text-center">Key Features</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-400">
             <li>AI-powered text summarization via UI Action in ServiceNow</li>
@@ -14,7 +16,7 @@ export default function aiorder() {
             <li>Storing of summaries in custom table in ServiceNow so that PMs may revisit. </li>
           </ul>
         </div>
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg mt-6">
+        <div className="bg-gradient-to-br from-gray-900 via-black to-blue-900 p-6 rounded-lg shadow-lg mt-6">
           <h2 className="text-3xl font-semibold mb-8 text-center">What I Learned</h2>
           <p className="text-lg leading-relaxed text-gray-300">
             This project taught me how to use Thrive's private GPT model to summarize Change Tasks associated with specific Orders in ServiceNow. I utilized a Script Include to handle the backend logic, a UI Action to trigger the summarization process, and a custom table to store the summaries. These summaries are accessible on the order via a related list, making it easy for users to review them.

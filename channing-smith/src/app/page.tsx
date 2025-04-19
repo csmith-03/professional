@@ -58,12 +58,12 @@ export default function Home() {
           </p>
         </section>
 
-        <section id="professional-work" className="py-20 bg-gradient-to-br from-gray-900 via-black to-blue-900">
+        <section id="professional-work" className="py-20 bg-gradient-to-br from-gray-900 via-black to-blue-900 px-4 sm:px-8 mb-16 rounded-lg shadow-lg">
           <h2 className="text-4xl font-semibold mb-8 text-center">Professional Work</h2>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed text-center mb-12">
             Here are some of the key projects I have worked on during my professional career at Thrive.
           </p>
-          <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+          <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto px-4 sm:px-8">
             <li className="relative group border border-gray-700 rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/logo.png"
@@ -155,9 +155,9 @@ export default function Home() {
           </ul>
         </section>
 
-        <section id="key-skills" className="py-20 bg-gradient-to-br from-gray-900 via-black to-blue-900">
+        <section id="key-skills" className="py-20 bg-gradient-to-br from-gray-900 via-black to-blue-900 rounded-lg shadow-lg px-4 sm:px-8">
           <h2 className="text-4xl font-semibold mb-8 text-center">Key Skills</h2>
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto px-4 sm:px-8">
             <details className="bg-gray-800 text-white p-4 rounded-lg shadow-lg mb-4">
               <summary className="cursor-pointer text-xl font-semibold">Technical Skills</summary>
               <ul className="list-disc list-inside mt-4 space-y-2">
