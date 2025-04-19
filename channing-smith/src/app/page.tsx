@@ -10,12 +10,28 @@ export default function Home() {
   const [formStatus, setFormStatus] = useState("");
   const [displayedText, setDisplayedText] = useState("");
   const fullText = 'console.log("Hello world! I\'m Channing Smith!");';
+  const [developerText, setDeveloperText] = useState("");
+  const developerFullText = 'Hello world... I\'m Channing Smith!';
 
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
       if (index < fullText.length) {
         setDisplayedText(fullText.slice(0, index + 1));
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < developerFullText.length) {
+        setDeveloperText(developerFullText.slice(0, index + 1));
         index++;
       } else {
         clearInterval(interval);
@@ -60,28 +76,8 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-blue-900 to-black text-white font-sans">
-      <header className="absolute top-0 left-0 w-full p-4 flex justify-between items-center bg-black bg-opacity-50">
-        <h1 className="text-lg sm:text-lg break-words max-w-xs sm:max-w-md">
-          <span className="text-green-400">{displayedText}</span>
-          <span className="blinking-cursor">|</span>
-        </h1>
-        <nav className="hidden md:flex gap-6">
-          <a href="#about" className="hover:underline">About</a>
-          <a href="#professional-work" className="hover:underline">Projects</a>
-          <a href="#published-works" className="hover:underline">Published Works</a>
-          <a href="#contact" className="hover:underline">Contact</a>
-        </nav>
-        <button
-          className="md:hidden text-white"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          ☰
-        </button>
-      </header>
-
       {isMenuOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex flex-col items-center justify-center text-white md:hidden">
+        <div className="fixed top-0 left-0 w-full h-full bg-black z-50 flex flex-col items-center justify-center text-white md:hidden">
           <button
             className="absolute top-4 right-4 text-2xl text-white"
             onClick={toggleMenu}
@@ -95,9 +91,34 @@ export default function Home() {
         </div>
       )}
 
+      {!isMenuOpen && (
+        <header className="absolute top-0 left-0 w-full p-4 flex justify-between items-center bg-black bg-opacity-50">
+          {/* <h1 className="text-lg sm:text-lg break-words max-w-xs sm:max-w-md">
+            <span className="text-green-400">{displayedText}</span>
+            <span className="blinking-cursor">|</span>
+          </h1> */}
+          <nav className="hidden md:flex gap-6 ml-auto">
+            <a href="#about" className="hover:underline">About</a>
+            <a href="#professional-work" className="hover:underline">Projects</a>
+            <a href="#published-works" className="hover:underline">Published Works</a>
+            <a href="#contact" className="hover:underline">Contact</a>
+          </nav>
+          <button
+            className="md:hidden text-white ml-auto"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            ☰
+          </button>
+        </header>
+      )}
+
       <main className="pt-32 px-8">
         <section id="hero" className="text-center py-20">
-          <h2 className="text-6xl font-bold leading-tight mb-6">Software Developer</h2>
+          <h2 className="text-6xl font-bold leading-tight mb-6">
+            <span className="text-green-400">{developerText}</span>
+            <span className="blinking-cursor">|</span>
+          </h2>
           <p className="text-xl max-w-2xl mx-auto leading-relaxed">
             I blend code and creativity to craft unique digital experiences. Explore my portfolio to see my work.
           </p>
