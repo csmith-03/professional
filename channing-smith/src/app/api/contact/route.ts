@@ -24,9 +24,10 @@ export async function POST(req: Request): Promise<Response> {
         });
 
         await transporter.sendMail({
-            from: email,
-            to: process.env.EMAIL_USER as string,
-            subject: `New Contact Form Submission from ${name}`,
+            from: process.env.EMAIL_USER,
+            to: process.env.EMAIL_USER,
+            replyTo: email,
+            subject: `New Contact Form Submission on Personal Website from ${name} (${email})`,
             text: message,
         });
 
