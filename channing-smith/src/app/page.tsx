@@ -1,29 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useState } from "react";
 
 export default function Home() {
-  useEffect(() => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('mobile-menu');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
-      if (menu) {
-        menu.classList.toggle('hidden');
-      }
-    };
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-    if (menuToggle) {
-      menuToggle.addEventListener('click', toggleMenu);
-    }
-
-    return () => {
-      if (menuToggle) {
-        menuToggle.removeEventListener('click', toggleMenu);
-      }
-    };
-  }, []);
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white font-sans">
       <header className="absolute top-0 left-0 w-full p-4 flex justify-between items-center bg-black bg-opacity-50">
@@ -33,19 +19,24 @@ export default function Home() {
           <a href="#projects" className="hover:underline">Projects</a>
           <a href="#contact" className="hover:underline">Contact</a>
         </nav>
-        <button className="md:hidden text-white" id="menu-toggle">
+        <button
+          className="md:hidden text-white"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
           ☰
         </button>
       </header>
 
-      <div id="mobile-menu" className="hidden flex-col items-center bg-black bg-opacity-75 text-white p-4 md:hidden">
-        <a href="#about" className="py-2 hover:underline">About</a>
-        <a href="#projects" className="py-2 hover:underline">Projects</a>
-        <a href="#contact" className="py-2 hover:underline">Contact</a>
-      </div>
+      {isMenuOpen && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex flex-col items-center justify-center text-white md:hidden">
+          <a href="#about" className="py-2 text-xl hover:underline" onClick={toggleMenu}>About</a>
+          <a href="#projects" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Projects</a>
+          <a href="#contact" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Contact</a>
+        </div>
+      )}
 
       <main className="pt-32 px-8">
-      </main>
         <section id="hero" className="text-center py-20">
           <h2 className="text-6xl font-bold leading-tight mb-6">Software Developer</h2>
           <p className="text-xl max-w-2xl mx-auto leading-relaxed">
@@ -214,6 +205,7 @@ export default function Home() {
             </button>
           </form>
         </section>
-      </div>
+      </main>
+    </div>
   );
 }
