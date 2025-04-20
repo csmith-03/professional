@@ -9,7 +9,7 @@ const blogPosts = [
 
 export default function BlogPostGrid() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 sm:px-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 sm:px-8 mb-8">
       {blogPosts.map((post, index) => (
         <div key={index} className="relative group border border-gray-700 rounded-lg overflow-hidden shadow-lg">
           
