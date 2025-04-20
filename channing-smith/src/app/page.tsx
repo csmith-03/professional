@@ -12,6 +12,8 @@ export default function Home() {
   const fullText = 'console.log("Hello world! I\'m Channing Smith!");';
   const [developerText, setDeveloperText] = useState("");
   const developerFullText = 'Hello world... I\'m Channing Smith!';
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState("");
 
   useEffect(() => {
     let index = 0;
@@ -74,6 +76,16 @@ export default function Home() {
     }
   };
 
+  const openModal = (imageSrc: string) => {
+    setModalImage(imageSrc);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalImage("");
+  };
+
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-blue-900 to-black text-white font-sans">
       {isMenuOpen && (
@@ -127,11 +139,11 @@ export default function Home() {
 
         <section id="about" className="py-20">
           <h2 className="text-4xl font-semibold mb-8 text-center">About Me</h2>
-          <p className="text-lg max-w-3xl mx-auto leading-relaxed">
-            Hi, I'm Channing! As a developer and creative, I thrive at the intersection of technology and creativity. My passion lies in building innovative projects that inspire and engage, while also helping as many people as possible.
-          </p>
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed">
+            As a developer and creative, I <strong>thrive</strong> at the intersection of technology and creativity. My passion lies in building innovative projects that inspire and engage, while also helping as many people as possible.
+            </p>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed mt-4">
-            I graduated with a degree in Computer Science from College of Charleston. Currently, I work at Thrive, where I specialize in third party integrations, particularly within the ServiceNow platform.
+            I graduated with a degree in Computer Science from College of Charleston. Currently, I work at Thrive, where I work in third party integrations, particularly within the ServiceNow platform.
           </p>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed mt-4">
             In my free time, I enjoy creating custom websites, reading up on new technologies, and hanging out with my dog, Archie!
@@ -232,6 +244,28 @@ export default function Home() {
               </div>
             </li>
 
+            <li className="relative group border border-gray-700 rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/backupradar.png"
+                alt="Backup Radar Integration"
+                width={400}
+                height={300}
+                className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-2">Backup Radar Integration</h3>
+                <p className="text-sm text-gray-400 mb-4">
+                  A custom integration to view backup monitoring and reporting for clients.
+                </p>
+                <Link
+                  href="/backupradar"
+                  className="text-indigo-400 hover:text-indigo-300 underline"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </li>
+
           </ul>
         </section>
 
@@ -242,6 +276,7 @@ export default function Home() {
               <summary className="cursor-pointer text-xl font-semibold">Technical Skills</summary>
               <ul className="list-disc list-inside mt-4 space-y-2">
                 <li>JavaScript / TypeScript</li>
+                <li>Python</li>
                 <li>React / Next.js</li>
                 <li>Node.js</li>
                 <li>CSS / Tailwind CSS / MUI</li>
@@ -258,7 +293,9 @@ export default function Home() {
                 <li>Custom Tables</li>
                 <li>Business Rules</li>
                 <li>Client Scripts</li>
-                <li>Identification & Reconciliation Engine</li>
+                <li>CMDB Configuration</li>
+                <li>ServiceNow CLI</li>
+                <li>IRE Configuration</li>
                 <li>Integration with AI Models</li>
               </ul>
             </details>
@@ -278,7 +315,7 @@ export default function Home() {
         <section id="published-works" className="py-20 bg-gradient-to-br from-gray-900 via-black to-blue-900 rounded-lg shadow-lg px-4 sm:px-8 mt-16">
           <h2 className="text-4xl font-semibold mb-8 text-center">Published Works</h2>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed text-center mb-12">
-            While I have only authored a couple of articles so far, each one reflects my passion for technology and innovation.
+            The below papers reflect my academic research and contributions while a student at College of Charleston and conducting research at the University of Cincinnati. 
           </p>
           <div className="max-w-3xl mx-auto space-y-8">
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
@@ -294,6 +331,13 @@ export default function Home() {
               >
                 Read Article
               </a>
+              <br />
+              <button
+                onClick={() => openModal("/EXPO 2023-2.png")}
+                className="text-indigo-400 hover:text-indigo-300 underline"
+              >
+                View Poster
+              </button>
             </div>
             <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-2 text-indigo-400">"A Second Look at the Portability of Deep Learning Side-Channel Attacks over EM Traces"</h3>
@@ -309,8 +353,29 @@ export default function Home() {
               >
                 Read Article
               </a>
+              <br />
+              <button
+                onClick={() => openModal("/EXPO 2023-1.png")}
+                className="text-indigo-400 hover:text-indigo-300 underline"
+              >
+                View Poster
+              </button>
             </div>
           </div>
+
+          {isModalOpen && (
+            <div
+              className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+              onClick={closeModal}
+            >
+              <div
+                className="bg-white p-4 rounded-lg shadow-lg max-w-3xl w-full relative z-60"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img src={modalImage} alt="Poster" className="w-full h-auto rounded-lg" />
+              </div>
+            </div>
+          )}
         </section>
 
         <section id="contact" className="py-20">
