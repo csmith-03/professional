@@ -101,20 +101,19 @@ export default function Home() {
           <a href="#professional-work" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Projects</a>
           <a href="#published-works" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Published Works</a>
           <a href="#contact" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Contact</a>
+          <Link href="/blog" className="py-2 text-xl hover:underline" onClick={toggleMenu}>Blog</Link>
         </div>
       )}
 
       {!isMenuOpen && (
         <header className="absolute top-0 left-0 w-full p-4 flex justify-between items-center bg-black bg-opacity-50">
-          {/* <h1 className="text-lg sm:text-lg break-words max-w-xs sm:max-w-md">
-            <span className="text-green-400">{displayedText}</span>
-            <span className="blinking-cursor">|</span>
-          </h1> */}
+          <img src="/favicon.ico" alt="Home Icon" className="w-8 h-8 cursor-pointer" onClick={() => window.location.href = '/'} />
           <nav className="hidden md:flex gap-6 ml-auto">
             <a href="#about" className="hover:underline">About</a>
             <a href="#professional-work" className="hover:underline">Projects</a>
             <a href="#published-works" className="hover:underline">Published Works</a>
             <a href="#contact" className="hover:underline">Contact</a>
+            <Link href="/blog" className="hover:underline">Blog</Link>
           </nav>
           <button
             className="md:hidden text-white ml-auto text-3xl"
