@@ -48,7 +48,7 @@ export default function liquidfiles() {
         </header>
       )}
 
-      <main className="pt-32 px-8">
+      <main className="pt-32 px-8 pb-20">
         <div className="max-w-4xl mx-auto">
           <section id="hero" className="text-center">
             <h1 className="text-4xl font-extrabold mb-2 text-white sm:text-5xl sm:mb-4">What I've learned from my first year as a software developer</h1>
