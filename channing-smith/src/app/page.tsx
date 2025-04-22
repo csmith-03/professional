@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Analytics } from "@vercel/analytics/react";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
