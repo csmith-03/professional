@@ -106,7 +106,7 @@ export default function Home() {
       )}
 
       {!isMenuOpen && (
-        <header className="absolute top-0 left-0 w-full p-4 flex justify-between items-center bg-black bg-opacity-50">
+        <header className="sticky top-0 left-0 w-full p-4 flex justify-between items-center bg-black bg-opacity-50 z-40">
           <img src="/favicon.ico" alt="Home Icon" className="w-8 h-8 cursor-pointer" onClick={() => window.location.href = '/'} />
           <nav className="hidden md:flex gap-6 ml-auto">
             <a href="#about" className="hover:underline">About</a>
@@ -126,23 +126,61 @@ export default function Home() {
       )}
 
       <main className="pt-32 px-8">
-        <section id="hero" className="text-center py-20">
-          <h2 className="text-6xl font-bold leading-tight mb-6">
-            <span className="text-green-400">{developerText}</span>
-            <span className="blinking-cursor">|</span>
-          </h2>
-          <p className="text-xl max-w-2xl mx-auto leading-relaxed">
-            I blend code and creativity to craft unique digital experiences. Explore my portfolio to see my work.
-          </p>
-        </section>
+        <section id="hero" className="flex flex-col items-center justify-center min-h-[60vh] text-center relative">
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 to-black/80 rounded-xl blur-sm -z-10"></div>
+  <Image
+    src="/profile.png"
+    alt="Channing Smith"
+    width={200}
+    height={200}
+    className="rounded-full border-4 border-indigo-400 shadow-lg mb-6"
+  />
+  <h1 className="text-5xl font-extrabold mb-4 text-white drop-shadow-lg">
+    Channing Smith
+  </h1>
+  <p className="text-2xl text-indigo-300 mb-2">Full-Stack Developer & Tech Enthusiast</p>
+  <p className="text-lg text-gray-300 max-w-xl mx-auto mb-6">
+    Building innovative solutions at the intersection of technology and creativity.
+  </p>
+  <div className="flex gap-6 justify-center mt-4">
+    <a
+      href="https://github.com/csmith-03"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub"
+    >
+      <Image
+        src="/githubblue.webp"
+        alt="GitHub"
+        width={40}
+        height={40}
+        className="hover:opacity-80 transition-opacity"
+      />
+    </a>
+    <a
+      href="https://www.linkedin.com/in/channing-smith-1261061b3/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LinkedIn"
+    >
+      <Image
+        src="/linkedin.png"
+        alt="LinkedIn"
+        width={40}
+        height={40}
+        className="hover:opacity-80 transition-opacity"
+      />
+    </a>
+  </div>
+</section>
 
         <section id="about" className="py-20">
           <h2 className="text-4xl font-semibold mb-8 text-center">About Me</h2>
             <p className="text-lg max-w-3xl mx-auto leading-relaxed">
-            As a developer and creative, I <strong>thrive</strong> at the intersection of technology and creativity. My passion lies in building innovative projects that inspire and engage, while also helping as many people as possible.
+            I strongly consider myself not only a developer, but a creative technologist. I love to build things that solve problems and make people's lives easier, while also thinking outside the box to creative unique and visually appealing solutions.
             </p>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed mt-4">
-            I graduated with a degree in Computer Science from College of Charleston. Currently, I work at Thrive, where I work in third party integrations, particularly within the ServiceNow platform.
+            I graduated with a degree in Computer Science from College of Charleston. Currently, I work at Thrive, where I work on platform integrations, particularly within ServiceNow. Recently, I have been focusing on a new/custom client portal in Next.js.
           </p>
           <p className="text-lg max-w-3xl mx-auto leading-relaxed mt-4">
             In my free time, I enjoy creating custom websites, reading up on new technologies, and hanging out with my dog, Archie!
@@ -155,6 +193,28 @@ export default function Home() {
             Here are some of the key projects I have worked on during my professional career at Thrive.
           </p>
           <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto px-4 sm:px-8">
+            <li className="relative group border border-gray-700 rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/clientportal.png"
+                alt="Client Portal"
+                width={400}
+                height={300}
+                className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-2">Client Portal</h3>
+                <p className="text-sm text-gray-400 mb-4">
+                  A custom client portal built with Next.js to enhance client experience and streamline service management.
+                </p>
+                <Link
+                  href="/clientportal"
+                  className="text-indigo-400 hover:text-indigo-300 underline"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </li>
+
             <li className="relative group border border-gray-700 rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/logo.png"
@@ -274,11 +334,10 @@ export default function Home() {
             <details className="bg-gray-800 text-white p-4 rounded-lg shadow-lg mb-4">
               <summary className="cursor-pointer text-xl font-semibold">Technical Skills</summary>
               <ul className="list-disc list-inside mt-4 space-y-2">
+                <li>React / Next.js</li>
                 <li>JavaScript / TypeScript</li>
                 <li>Python</li>
-                <li>React / Next.js</li>
-                <li>Node.js</li>
-                <li>CSS / Tailwind CSS / MUI</li>
+                <li>Tailwind CSS</li>
                 <li>REST APIs</li>
                 <li>Git / Version Control</li>
                 <li>ServiceNow Development</li>
@@ -439,7 +498,7 @@ export default function Home() {
             />
           </a>
         </div>
-        <p className="text-sm text-gray-400">© 2025 Channing Smith. All rights reserved.</p>
+        <p className="text-sm text-gray-400">© 2026 Channing Smith. All rights reserved.</p>
       </footer>
       <style jsx>{`
         .blinking-cursor {
