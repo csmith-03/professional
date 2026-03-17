@@ -76,7 +76,7 @@ export const PROJECTS = [
   {
     title: "Client Portal",
     description:
-      "A custom client portal built with Next.js to enhance client experience and streamline service.",
+      "A custom client portal built with Next.js and ServiceNow as a data source to enhance client experience and streamline service.",
     href: "/clientportal",
     image: "/circle.png",
     imageAlt: "Client Portal",

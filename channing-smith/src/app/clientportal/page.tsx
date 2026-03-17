@@ -11,8 +11,7 @@ export default function ClientPortalPage() {
   return (
     <ProjectPageLayout title="Client Portal" image={PROJECT?.image} imageAlt={PROJECT?.imageAlt}>
       <p className="text-white/85 leading-relaxed">
-        A custom client portal built on ServiceNow so clients can submit cases,
-        manage subscriptions, and access tailored resources in one place.
+      A custom client portal built with Next.js and ServiceNow as a data source to enhance client experience and streamline service.
       </p>
       {HIGHLIGHTS.length > 0 && <ProjectHighlights highlights={HIGHLIGHTS} />}
       {/* <section className="bg-white/5 border border-white/10 rounded-xl p-6">
