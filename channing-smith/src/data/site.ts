@@ -78,7 +78,7 @@ export const PROJECTS = [
     description:
       "A custom client portal built with Next.js to enhance client experience and streamline service.",
     href: "/clientportal",
-    image: "/thrivelogo.png",
+    image: "/thrive.PNG",
     imageAlt: "Client Portal",
   },
   {
